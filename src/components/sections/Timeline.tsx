@@ -5,7 +5,7 @@ import { Calendar, Award, Users, Globe, Target, Lightbulb, Trophy } from 'lucide
 const Timeline: React.FC = () => {
   const milestones = [
     {
-      year: '2018',
+      year: '2017',
       title: 'Foundation',
       description: 'Enactus BITS Pilani was established with a vision to create social impact',
       icon: Users,
@@ -20,22 +20,22 @@ const Timeline: React.FC = () => {
     },
     {
       year: '2020',
-      title: 'Digital Innovation',
-      description: 'Adapted to digital platforms and launched online skill development programs',
+      title: 'National recognition',
+      description: 'Won Enactus India National Competition',
       icon: Lightbulb,
       side: 'left'
     },
     {
       year: '2021',
-      title: 'National Recognition',
-      description: 'Won Best Innovation Award at Enactus India National Competition',
+      title: '1000+ lives impacted',
+      description: 'Milestone reached across all projects',
       icon: Award,
       side: 'right'
     },
     {
       year: '2022',
-      title: 'Global Participation',
-      description: 'Represented India at Enactus World Cup in Puerto Rico',
+      title: 'World Cup participation',
+      description: 'Represented India at Enactus World Cup',
       icon: Globe,
       side: 'left'
     },
@@ -48,8 +48,8 @@ const Timeline: React.FC = () => {
     },
     {
       year: '2024',
-      title: 'Sustainability Focus',
-      description: 'Launched comprehensive sustainability and environmental initiatives',
+      title: '5000+ beneficiaries',
+      description: 'Expanded reach across multiple states',
       icon: Calendar,
       side: 'left'
     }

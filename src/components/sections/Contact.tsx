@@ -223,6 +223,23 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
+              className="h-64 rounded-xl overflow-hidden border border-charcoal-500"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.4047879834744!2d75.58671331504076!3d28.357947902524616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3912d52d53147fe1%3A0x37a820eff8b06bdb!2sBirla%20Institute%20of%20Technology%20and%20Science%2C%20Pilani!5e0!3m2!1sen!2sin!4v1629135702056!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </motion.div>
+
+            {/* <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="h-64 bg-charcoal-600 rounded-xl border border-charcoal-500 flex items-center justify-center"
             >
               <div className="text-center">
@@ -230,7 +247,7 @@ const Contact: React.FC = () => {
                 <p className="text-white font-medium">Interactive Map</p>
                 <p className="text-gray-400 text-sm">BITS Pilani Campus Location</p>
               </div>
-            </motion.div>
+            </motion.div>  */}
           </motion.div>
         </div>
       </div>

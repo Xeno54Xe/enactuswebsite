@@ -6,61 +6,52 @@ import { Link } from 'react-router-dom';
 const Team: React.FC = () => {
   const teamMembers = [
     {
-      name: 'Arjun Sharma',
+      name: 'Devansh Bansal',
       role: 'President',
-      department: 'Computer Science',
-      year: 'Final Year',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
+      department: 'Electrical Engineering',
+      year: 'Third Year',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQHVnK6GctPWBg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1727086809025?e=1755129600&v=beta&t=JXB45ayQrS7XxjZfhBPx5tvwx8cj75rtlwwrATJaIk8',
+      linkedin: 'https://www.linkedin.com/in/devansh-bansal-82b729250/',
       email: 'arjun@enactusbitspilani.com'
     },
     {
-      name: 'Priya Patel',
-      role: 'Vice President',
-      department: 'Mechanical Engineering',
+      name: 'Pranav talreja',
+      role: 'Managing Director',
+      department: 'Chemical Engineering + MS Chemistry',
       year: 'Third Year',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
-      email: 'priya@enactusbitspilani.com'
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQGT2HwsIiAL2Q/profile-displayphoto-shrink_100_100/B56ZcyRWT7GsAc-/0/1748895100479?e=1755129600&v=beta&t=UDbSTXjNWVG1KlElFbkcv1R1ng14XtNQflCJ0yuHlZk',
+      linkedin: 'https://www.linkedin.com/in/pranav-talreja-506a49216/',
+      email: 'pranav@enactusbitspilani.com'
     },
     {
-      name: 'Rahul Verma',
-      role: 'Project Director',
-      department: 'Economics',
-      year: 'Second Year',
-      image: 'https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
+      name: 'Kaustubh Bansal',
+      role: 'Head of Projects',
+      department: 'Civil Engineering',
+      year: 'Third Year',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQF75tgLbHpX4w/profile-displayphoto-shrink_400_400/B56ZXhiNt8GoAg-/0/1743245603988?e=1755129600&v=beta&t=Ur4XhhqCZp8YSccuHkRFG8UYmpYH0lYUjYmUvaysyXM',
+      linkedin: 'https://www.linkedin.com/in/kaustubh-bansal/',
       email: 'rahul@enactusbitspilani.com'
     }
   ];
 
   const developers = [
     {
-      name: 'Vikash Kumar',
+      name: 'Vansh Dhillon',
       role: 'Lead Developer',
-      department: 'Computer Science',
-      year: 'Final Year',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
-      email: 'vikash@enactusbitspilani.com'
+      department: 'CSE + MS Economics',
+      year: 'First Year',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQGLKSLEiHrtlg/profile-displayphoto-shrink_800_800/B4DZQUEJftGgAc-/0/1735503420537?e=1755129600&v=beta&t=UJ3oOa4bWk8fw3-qXVIB28jG6Odh998FsJnf81IJinY',
+      linkedin: 'https://www.linkedin.com/in/vanshdhillon/',
+      email: 'f20240923@pilani.bits-pilani.ac.in'
     },
     {
-      name: 'Ananya Desai',
+      name: 'Harsh Singh',
       role: 'Frontend Developer',
-      department: 'Information Technology',
-      year: 'Third Year',
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
-      email: 'ananya@enactusbitspilani.com'
-    },
-    {
-      name: 'Rohan Singh',
-      role: 'Backend Developer',
       department: 'Computer Science',
-      year: 'Second Year',
-      image: 'https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
-      email: 'rohan@enactusbitspilani.com'
+      year: 'First Year',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQFKzKzIF3yhRQ/profile-displayphoto-shrink_800_800/B4DZb23_W6G8Ag-/0/1747898596017?e=1755129600&v=beta&t=pg7BcSJTDmOdJ7SnnjkjArjnoHxhqq572LMcaFbuxHk',
+      linkedin: 'https://www.linkedin.com/in/harsh-singh-4a6600323',
+      email: 'harssh60@gmail.com'
     }
   ];
 

@@ -1,28 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Heart, Users, Award } from 'lucide-react';
-
+import snaps from './enactus-snaps.png';
 const About: React.FC = () => {
   const values = [
     {
       icon: Target,
       title: 'Our Mission',
-      description: 'To enable progress through entrepreneurial action by empowering students to create community impact.'
+      description: 'Empowering students to drive social change through innovative, entrepreneurial action and community-based solutions.'
     },
     {
       icon: Heart,
       title: 'Our Values',
-      description: 'Integrity, passion, innovation, and social responsibility guide everything we do.'
+      description: 'Integrity, innovation, empathy, and responsibility guide every step of our entrepreneurial journey.'
     },
     {
       icon: Users,
       title: 'Our Community',
-      description: 'A diverse group of changemakers working together to create lasting social impact.'
+      description: 'A united team of changemakers working to solve real problems with sustainable business ideas.'
     },
     {
       icon: Award,
       title: 'Our Impact',
-      description: 'Transforming communities through sustainable entrepreneurial solutions and initiatives.'
+      description: 'Creating measurable, lasting change through socially conscious entrepreneurship and scalable grassroots projects.'
     }
   ];
 
@@ -41,9 +41,9 @@ const About: React.FC = () => {
             About <span className="bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">Enactus</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Enactus is a global organization that brings together student, academic, and business 
-            leaders who are committed to using the power of entrepreneurial action to improve the 
-            quality of life and standard of living for people in need.
+            Enactus is a global, non-profit organization that brings together student, academic, and business leaders who are committed to using the power of entrepreneurial action to improve the quality of life and standard of living for people in need.<br></br>
+            At Enactus BITS Pilani, we’re part of this international network mentored by KPMG, empowering students to take ENTrepreneurial ACTion to create meaningful and sustainable impact. We believe in the power of youth-led innovation to tackle global challenges, fostering a generation of entrepreneurial leaders ready to change the world.
+
           </p>
         </motion.div>
 
@@ -82,14 +82,13 @@ const About: React.FC = () => {
             <div>
               <h3 className="text-3xl font-bold text-charcoal-800 mb-6">Our Story at BITS Pilani</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Founded in 2018, Enactus BITS Pilani has been at the forefront of social 
-                entrepreneurship and community development. Our team consists of passionate 
-                students from diverse backgrounds, united by a common goal of creating positive change.
+               Founded in 2017, our journey began with a simple yet powerful mission — to use the power of innovation and business to bring sustainable change to our surroundings. Since then, we've worked tirelessly to bridge the gap between ideas and impact, always striving to make the world more inclusive, equitable, and empowered.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                We believe that entrepreneurial action can be a powerful force for good. Through 
-                our projects, we address critical social issues while empowering communities to 
-                become self-sufficient and sustainable.
+               From bringing traditional arts and crafts back to the mainstream to modernizing age-old cooking practices in rural kitchens, every project we’ve taken up has been rooted in real problems and backed by sustainable solutions. Our diverse initiatives reflect our belief that no problem is too small and no solution is too ambitious when guided by purpose.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+              We are proud to be a part of Enactus, a global community of student, academic, and business leaders mentored by KPMG, united by one goal — to drive ENTrepreneurial ACTion for others and create a better world for all of us.
               </p>
               <div className="flex items-center space-x-8">
                 <div>
@@ -108,15 +107,26 @@ const About: React.FC = () => {
             </div>
             <div className="relative">
               <motion.div
-                className="w-full h-80 bg-gradient-to-br from-yellow-400/20 to-green-400/20 rounded-2xl"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-2xl"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl font-bold bg-gradient-to-r from-yellow-400/30 to-green-400/30 bg-clip-text text-transparent">ENACTUS</div>
-                </div>
-              </motion.div>
+  className="w-full h-80 bg-gradient-to-br from-yellow-400/20 to-green-400/20 rounded-2xl relative overflow-hidden"
+  whileHover={{ scale: 1.02 }}
+  transition={{ duration: 0.3 }}
+>
+  {/* Subtle background gradient layer */}
+  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-2xl" />
+
+  {/* Content area */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 px-4">
+    {/* Gradient text */}
+
+    {/* Group photo */}
+    <img
+      src={snaps} // replace with actual image path
+      alt="Group Photo"
+      className="absolute inset-0 w-full h-full object-cover rounded-2xl z-0"
+    />
+  </div>
+</motion.div>
+
             </div>
           </div>
         </motion.div>

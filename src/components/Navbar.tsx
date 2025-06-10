@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X, Users } from 'lucide-react';
 import Cookies from 'js-cookie';
+import logo from './logo.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,14 +62,10 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-              <Users className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-white">
-              Enactus <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">BITS Pilani</span>
-            </span>
-          </Link>
+<Link to="/" className="bg-[1A1A1A] flex items-center space-x-3 h-10">
+  <img src={logo} alt="Enactus BITS Pilani" className="h-full w-auto object-contain" />
+</Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

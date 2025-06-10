@@ -7,85 +7,78 @@ const TeamPage: React.FC = () => {
   // Generate 30 team members
   const allTeamMembers = [
     {
-      name: 'Arjun Sharma',
-      role: 'President',
+      name: 'Devansh Bansal',
+      position: 'President',
       department: 'Computer Science',
-      year: 'Final Year',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Leading the team with vision and passion for social change.',
       linkedin: '#',
-      email: 'arjun@enactusbitspilani.com'
+      email: 'arjun@enactus.org',
+      github: '#'
     },
     {
-      name: 'Priya Patel',
-      role: 'Vice President',
-      department: 'Mechanical Engineering',
-      year: 'Third Year',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
-      email: 'priya@enactusbitspilani.com'
-    },
-    {
-      name: 'Rahul Verma',
-      role: 'Project Director',
+      name: 'Pranav Talreja',
+      position: 'Vice President',
       department: 'Economics',
-      year: 'Second Year',
-      image: 'https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
-      email: 'rahul@enactusbitspilani.com'
-    },
-    {
-      name: 'Sneha Gupta',
-      role: 'Finance Head',
-      department: 'Management',
-      year: 'Third Year',
-      image: 'https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
-      email: 'sneha@enactusbitspilani.com'
-    },
-    {
-      name: 'Vikram Singh',
-      role: 'Marketing Head',
-      department: 'Electrical Engineering',
-      year: 'Second Year',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      linkedin: '#',
-      email: 'vikram@enactusbitspilani.com'
-    },
-    {
-      name: 'Ananya Desai',
-      role: 'Operations Head',
-      department: 'Chemical Engineering',
-      year: 'Final Year',
       image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Strategic planning and project management expert.',
       linkedin: '#',
-      email: 'ananya@enactusbitspilani.com'
+      email: 'priya@enactus.org'
     },
     {
-      name: 'Karan Mehta',
-      role: 'Project Manager',
-      department: 'Civil Engineering',
-      year: 'Third Year',
+      name: 'Kautabh Bansal',
+      position: 'Project Director',
+      department: 'Mechanical Engineering',
+      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Overseeing all project implementations and community outreach.',
+      linkedin: '#',
+      email: 'rahul@enactus.org'
+    },
+    {
+      name: 'Jayant Kapoor',
+      position: 'Finance Head',
+      department: 'Management',
+      image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Managing finances and ensuring sustainable project funding.',
+      linkedin: '#',
+      email: 'sneha@enactus.org'
+    },
+    {
+      name: 'Aditya Birari',
+      position: 'Technology Lead',
+      department: 'Information Systems',
       image: 'https://images.pexels.com/photos/2104252/pexels-photo-2104252.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Developing tech solutions for social impact projects.',
       linkedin: '#',
-      email: 'karan@enactusbitspilani.com'
+      email: 'vikram@enactus.org',
+      github: '#'
     },
     {
-      name: 'Riya Sharma',
-      role: 'Research Head',
-      department: 'Biotechnology',
-      year: 'Second Year',
+      name: 'Krish',
+      position: 'Marketing Head',
+      department: 'Communication',
       image: 'https://images.pexels.com/photos/3771787/pexels-photo-3771787.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Building brand awareness and community engagement.',
       linkedin: '#',
-      email: 'riya@enactusbitspilani.com'
+      email: 'anita@enactus.org'
     },
     {
-      name: 'Amit Kumar',
-      role: 'Community Outreach',
-      department: 'Psychology',
-      year: 'Final Year',
+      name: 'Ritambra Mehta',
+      position: 'Operations Manager',
+      department: 'Industrial Engineering',
       image: 'https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Streamlining operations and ensuring project efficiency.',
       linkedin: '#',
-      email: 'amit@enactusbitspilani.com'
+      email: 'sanjay@enactus.org'
+    },
+    {
+      name: 'Charvie',
+      position: 'Research Head',
+      department: 'Social Sciences',
+      image: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Leading research initiatives and impact assessment.',
+      linkedin: '#',
+      email: 'kavya@enactus.org'
     },
     {
       name: 'Kavya Nair',
