@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
   id: 1,
   title: 'Project Bioenzyme',
   description: 'Turning fruit and vegetable peels into eco-friendly, effective detergents.',
-  fullDescription: 'Project Bioenzyme addresses India’s rising chemical pollution and organic waste crisis by creating biodegradable, non-toxic detergents from fruit and vegetable peels. Our innovation combats water pollution and landfill emissions while promoting a circular economy. Ecozyme’s formulation is gentle on skin, safe for marine life, and competitively priced. The project integrates refill models, digital marketing, and community-driven sourcing to scale sustainably across eco-conscious households and businesses.',
+  fullDescription: 'Project Bioenzyme addresses India's rising chemical pollution and organic waste crisis by creating biodegradable, non-toxic detergents from fruit and vegetable peels. Our innovation combats water pollution and landfill emissions while promoting a circular economy. Ecozyme's formulation is gentle on skin, safe for marine life, and competitively priced. The project integrates refill models, digital marketing, and community-driven sourcing to scale sustainably across eco-conscious households and businesses.',
   impact: 'Reduced landfill waste and chemical runoff in pilot regions',
   location: 'Urban pilot regions, scalable to Tier 2/3 cities',
   status: 'Active',
@@ -93,7 +93,7 @@ const Projects: React.FC = () => {
   id: 5,
   title: 'Project SOCORS',
   description: 'Digitizing Kirana stores to ensure safe shopping during and beyond the pandemic.',
-  fullDescription: 'Project SOCORS was launched in response to the challenges faced by Kirana stores during the COVID-19 lockdown. We developed a web app that enables customers to book shopping time slots, order groceries, and access local shop listings. The app minimizes crowding, facilitates delivery, and supports digital transactions. It also helps small retailers form a cooperative cartel to share resources, avoid price wars, and optimize sales using data insights. SOCORS empowers local stores to compete with major grocery chains and remain the backbone of India’s food retail sector.',
+  fullDescription: 'Project SOCORS was launched in response to the challenges faced by Kirana stores during the COVID-19 lockdown. We developed a web app that enables customers to book shopping time slots, order groceries, and access local shop listings. The app minimizes crowding, facilitates delivery, and supports digital transactions. It also helps small retailers form a cooperative cartel to share resources, avoid price wars, and optimize sales using data insights. SOCORS empowers local stores to compete with major grocery chains and remain the backbone of India's food retail sector.',
   impact: 'Pilot launched in Delhi with positive adoption',
   location: 'Vasant Kunj, Delhi (C8 & C9 Colonies)',
   status: 'Completed',
@@ -139,7 +139,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20 relative bg-gray-100">
+    <section id="projects" className="py-20 relative bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -202,7 +202,7 @@ const Projects: React.FC = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group"
                 >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                     {/* Project Image */}
                     <div className="relative overflow-hidden h-48">
                       <img
@@ -268,7 +268,7 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-16"
         >
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
             <h3 className="text-3xl font-bold text-charcoal-800 mb-4">
               Have a Project Idea?
             </h3>
@@ -301,7 +301,7 @@ const Projects: React.FC = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-white rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-gray-50 rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-start mb-6">

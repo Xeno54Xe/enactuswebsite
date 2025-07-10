@@ -37,7 +37,7 @@ const Partners: React.FC = () => {
   ];
 
   return (
-    <section id="partners" className="py-20 bg-gray-100">
+    <section id="partners" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -67,7 +67,7 @@ const Partners: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
-              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center">
+              <div className="bg-gray-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center">
                 {/* Partner Logo */}
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
                   <Building className="h-12 w-12 text-yellow-500" />
@@ -93,8 +93,8 @@ const Partners: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
-            <Handshake className="h-12 w-12 text-yellow-500 mx-auto mb-6" />
+          <div className="bg-gray-50 rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+            <Handshake className="h-12 w-12 text-yellow-400 mx-auto mb-6" />
             <h3 className="text-3xl font-bold text-charcoal-800 mb-4">
               Partner With Us
             </h3>
