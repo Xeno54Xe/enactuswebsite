@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
             ) : (
               <Link
                 to="/login"
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-charcoal-800 px-6 py-2 rounded-full font-semibold hover:scale-105 transition-all duration-300"
+                className="bg-yellow-400 text-charcoal-800 px-6 py-2 rounded-full font-semibold hover:scale-105 transition-all duration-300"
               >
                 Login
               </Link>
@@ -155,7 +155,7 @@ const Navbar: React.FC = () => {
             ) : (
               <Link
                 to="/login"
-                className="block bg-gradient-to-r from-yellow-400 to-orange-500 text-charcoal-800 px-4 py-2 rounded-full font-semibold text-center mt-4"
+                className="block bg-yellow-400 text-charcoal-800 px-4 py-2 rounded-full font-semibold text-center mt-4"
                 onClick={() => setIsOpen(false)}
               >
                 Login

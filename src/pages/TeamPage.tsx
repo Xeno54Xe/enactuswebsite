@@ -286,7 +286,7 @@ const TeamPage: React.FC = () => {
             Back to Home
           </Link>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Our Complete <span className="bg-gradient-to-r from-yellow-400 to-blue-500 bg-clip-text text-transparent">Team</span>
+            Our Complete <span className="text-yellow-400">Team</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl">
             Meet all the passionate individuals who make Enactus BITS Pilani a force for positive change.
@@ -324,6 +324,7 @@ const TeamPage: React.FC = () => {
                     {member.name}
                   </h3>
                   <p className="bg-gradient-to-r from-yellow-400 to-blue-500 bg-clip-text text-transparent font-medium text-sm mb-1">{member.role}</p>
+                  <p className="text-yellow-400 font-medium text-sm mb-1">{member.role}</p>
                   <p className="text-gray-400 text-xs mb-1">{member.department}</p>
                   <p className="text-gray-400 text-xs mb-3">{member.year}</p>
 

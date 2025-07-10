@@ -84,7 +84,7 @@ const Team: React.FC = () => {
           <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300">
             {member.name}
           </h3>
-          <p className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent font-medium mb-2">{member.role}</p>
+          <p className="text-yellow-400 font-medium mb-2">{member.role}</p>
           <p className="text-gray-400 text-sm mb-1">{member.department}</p>
           <p className="text-gray-400 text-sm mb-4">{member.year}</p>
 
@@ -124,7 +124,7 @@ const Team: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Meet Our <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Team</span>
+            Meet Our <span className="text-yellow-400">Team</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Behind every successful project is a dedicated team of passionate individuals 
@@ -147,7 +147,7 @@ const Team: React.FC = () => {
         >
           <Link to="/team">
             <motion.button
-              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-charcoal-800 px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300 inline-flex items-center"
+              className="bg-yellow-400 text-charcoal-800 px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300 inline-flex items-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -166,7 +166,7 @@ const Team: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Meet the <span className="bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent">Developers</span>
+            Meet the <span className="text-yellow-400">Developers</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             The talented developers who brought this website to life and continue to enhance our digital presence.

@@ -70,7 +70,7 @@ const Contact: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Get In <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Touch</span>
+            Get In <span className="text-yellow-400">Touch</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Have questions about our work or want to collaborate with us? We'd love to hear from you. 
@@ -167,7 +167,7 @@ const Contact: React.FC = () => {
 
               <motion.button
                 type="submit"
-                className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-charcoal-800 py-3 px-6 rounded-lg font-semibold hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
+                className="w-full bg-yellow-400 text-charcoal-800 py-3 px-6 rounded-lg font-semibold hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -205,19 +205,19 @@ const Contact: React.FC = () => {
                 className="flex items-start space-x-4 p-6 bg-charcoal-600 rounded-xl border border-charcoal-500 hover:border-yellow-400/50 transition-all duration-300"
               >
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center">
                     <info.icon className="h-6 w-6 text-charcoal-800" />
                   </div>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-1">{info.title}</h4>
-                  <p className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-1">{info.details}</p>
+                  <p className="text-yellow-400 mb-1">{info.details}</p>
                   <p className="text-gray-400 text-sm">{info.subtitle}</p>
                 </div>
               </motion.div>
             ))}
 
-            {/* Map Placeholder */}
+            {/* Map */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -234,20 +234,6 @@ const Contact: React.FC = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </motion.div>
-
-            {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="h-64 bg-charcoal-600 rounded-xl border border-charcoal-500 flex items-center justify-center"
-            >
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-yellow-400 mx-auto mb-2" />
-                <p className="text-white font-medium">Interactive Map</p>
-                <p className="text-gray-400 text-sm">BITS Pilani Campus Location</p>
-              </div>
-            </motion.div>  */}
           </motion.div>
         </div>
       </div>

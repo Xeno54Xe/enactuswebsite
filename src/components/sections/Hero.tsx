@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
             
             <motion.button
               onClick={() => scrollToSection('projects')}
-              className="bg-transparent border-2 border-yellow-400 text-white px-8 py-4 rounded-full font-semibold hover:bg-gradient-to-r hover:from-yellow-400 hover:to-orange-500 hover:text-charcoal-800 transition-all duration-300 inline-flex items-center"
+              className="bg-transparent border-2 border-yellow-400 text-white px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 hover:text-charcoal-800 transition-all duration-300 inline-flex items-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">
                   {stat.number}
                 </div>
                 <div className="text-gray-300">{stat.label}</div>
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 2, repeat: Infinity }}
       >
         <div className="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gradient-to-b from-yellow-400 to-orange-500 rounded-full mt-2"></div>
+          <div className="w-1 h-3 bg-yellow-400 rounded-full mt-2"></div>
         </div>
       </motion.div>
     </section>

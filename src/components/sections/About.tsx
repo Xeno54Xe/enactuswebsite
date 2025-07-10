@@ -38,7 +38,7 @@ const About: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-charcoal-800 mb-6">
-            About <span className="bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">Enactus</span>
+            About <span className="text-yellow-400">Enactus</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Enactus is a global, non-profit organization that brings together student, academic, and business leaders who are committed to using the power of entrepreneurial action to improve the quality of life and standard of living for people in need.<br></br>
@@ -59,7 +59,7 @@ const About: React.FC = () => {
               className="text-center group"
             >
               <motion.div
-                className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-yellow-400 to-green-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300"
+                className="w-16 h-16 mx-auto mb-6 bg-yellow-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300"
                 whileHover={{ scale: 1.1, rotate: 5 }}
               >
                 <value.icon className="h-8 w-8 text-white" />
@@ -92,15 +92,15 @@ const About: React.FC = () => {
               </p>
               <div className="flex items-center space-x-8">
                 <div>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">6+</div>
+                  <div className="text-2xl font-bold text-yellow-400">6+</div>
                   <div className="text-gray-500">Years Active</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">15+</div>
+                  <div className="text-2xl font-bold text-yellow-400">15+</div>
                   <div className="text-gray-500">Awards Won</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">1000+</div>
+                  <div className="text-2xl font-bold text-yellow-400">1000+</div>
                   <div className="text-gray-500">Lives Touched</div>
                 </div>
               </div>

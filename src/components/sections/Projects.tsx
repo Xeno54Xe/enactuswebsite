@@ -150,7 +150,7 @@ const Projects: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-charcoal-800 mb-6">
-            Our <span className="bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">Projects</span>
+            Our <span className="text-yellow-400">Projects</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Discover the impact we're making through innovative social entrepreneurship projects 
@@ -167,7 +167,7 @@ const Projects: React.FC = () => {
             className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full transition-all duration-300 shadow-lg ${
               currentIndex === 0 
                 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                : 'bg-gradient-to-r from-yellow-400 to-green-400 text-white hover:scale-110'
+                : 'bg-yellow-400 text-white hover:scale-110'
             }`}
           >
             <ChevronLeft className="w-6 h-6" />
@@ -179,7 +179,7 @@ const Projects: React.FC = () => {
             className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full transition-all duration-300 shadow-lg ${
               currentIndex >= projects.length - 3 
                 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                : 'bg-gradient-to-r from-yellow-400 to-green-400 text-white hover:scale-110'
+                : 'bg-yellow-400 text-white hover:scale-110'
             }`}
           >
             <ChevronRight className="w-6 h-6" />
@@ -246,7 +246,7 @@ const Projects: React.FC = () => {
                       {/* Learn More Button */}
                       <motion.button
                         onClick={() => handleLearnMore(project)}
-                        className="w-full bg-gradient-to-r from-yellow-400 to-green-400 text-white py-2 px-4 rounded-lg font-semibold hover:scale-105 transition-all duration-300"
+                        className="w-full bg-yellow-400 text-white py-2 px-4 rounded-lg font-semibold hover:scale-105 transition-all duration-300"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -277,7 +277,7 @@ const Projects: React.FC = () => {
               Share your ideas and let's work together to make a difference.
             </p>
             <motion.button
-              className="bg-gradient-to-r from-yellow-400 to-green-400 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300"
+              className="bg-yellow-400 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -391,7 +391,7 @@ const Projects: React.FC = () => {
               </div>
 
               <div className="flex gap-4 mt-8">
-                <button className="bg-gradient-to-r from-yellow-400 to-green-400 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-transform flex-1">
+                <button className="bg-yellow-400 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-transform flex-1">
                   Get Involved
                 </button>
                 <button className="px-6 py-3 rounded-full font-semibold text-charcoal-800 border-2 border-gray-300 hover:border-yellow-400 transition-all flex-1">

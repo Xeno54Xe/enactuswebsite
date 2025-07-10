@@ -48,7 +48,7 @@ const Partners: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-charcoal-800 mb-6">
-            Our <span className="bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">Partners</span>
+            Our <span className="text-yellow-400">Partners</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             We're grateful to our partners and sponsors who share our vision of creating 
@@ -113,7 +113,7 @@ const Partners: React.FC = () => {
               ))}
             </div>
             <motion.button
-              className="bg-gradient-to-r from-yellow-400 to-green-400 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300"
+              className="bg-yellow-400 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
