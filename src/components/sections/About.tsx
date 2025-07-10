@@ -27,7 +27,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-100">
+    <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -76,7 +76,7 @@ const About: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white rounded-2xl p-8 md:p-12 shadow-lg"
+          className="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-lg"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
