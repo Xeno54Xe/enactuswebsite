@@ -104,7 +104,7 @@ const Partners: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               {['Strategic Partnership', 'Project Sponsorship', 'Community Support'].map((tier, index) => (
-                <div key={tier} className="bg-gray-50 rounded-lg p-4">
+                <div key={tier} className="bg-gray-50 rounded-lg p-4 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
                   <h4 className="text-yellow-500 font-semibold mb-2">{tier}</h4>
                   <p className="text-gray-500 text-sm">
                     Comprehensive support with maximum visibility and impact recognition.
