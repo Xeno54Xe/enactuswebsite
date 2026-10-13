@@ -1,43 +1,58 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Building, Handshake } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import enactusLogo from '../../assets/partners/enactus.png';
+import kpmgLogo from '../../assets/partners/kpmg.svg';
+import unileverLogo from '../../assets/partners/unilever.svg';
+import walmartLogo from '../../assets/partners/walmart.svg';
+
+// Organisations behind the Enactus network that our chapter is part of
+const partners = [
+  {
+    name: 'Enactus Global',
+    logo: enactusLogo,
+    tag: 'We are a chapter',
+    description: 'Enactus BITS Pilani is an official chapter of Enactus, the global network of students, academics and business leaders using entrepreneurial action for social good. As a member team we compete at the Enactus India National Competition, with national champions going on to the Enactus World Cup.'
+  },
+  {
+    name: 'KPMG',
+    logo: kpmgLogo,
+    tag: 'Enactus India & Global',
+    description: 'A long-standing global partner of Enactus. KPMG in India mentors Enactus college teams on their social entrepreneurship projects.'
+  },
+  {
+    name: 'Unilever',
+    logo: unileverLogo,
+    tag: 'Enactus Global',
+    description: 'A corporate partner of Enactus that has backed student competitions focused on leadership and sustainability.'
+  },
+  {
+    name: 'Walmart',
+    logo: walmartLogo,
+    tag: 'Enactus Global',
+    description: 'One of the major corporate supporters of Enactus programmes for student-led enterprise around the world.'
+  }
+];
+
+// Distance of each logo from the centre of the orbit, as a share of its width
+const ORBIT_RADIUS = 40;
+const ROTATE_EVERY_MS = 4000;
 
 const Partners: React.FC = () => {
-  const partners = [
-    {
-      name: 'Tech Corp',
-      logo: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=200',
-      description: 'Technology solutions and digital infrastructure support'
-    },
-    {
-      name: 'Green Energy Ltd',
-      logo: 'https://images.pexels.com/photos/4503821/pexels-photo-4503821.jpeg?auto=compress&cs=tinysrgb&w=200',
-      description: 'Sustainable energy solutions for community projects'
-    },
-    {
-      name: 'Education Foundation',
-      logo: 'https://images.pexels.com/photos/8926546/pexels-photo-8926546.jpeg?auto=compress&cs=tinysrgb&w=200',
-      description: 'Educational resources and scholarship programs'
-    },
-    {
-      name: 'Healthcare Plus',
-      logo: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=200',
-      description: 'Healthcare initiatives and medical support'
-    },
-    {
-      name: 'Community Bank',
-      logo: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=200',
-      description: 'Financial services and microfinance support'
-    },
-    {
-      name: 'Local Foods Co',
-      logo: 'https://images.pexels.com/photos/6646966/pexels-photo-6646966.jpeg?auto=compress&cs=tinysrgb&w=200',
-      description: 'Sustainable agriculture and food security programs'
-    }
-  ];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const active = partners[activeIndex];
+
+  // Step through the partners until the visitor hovers or picks one
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((index) => (index + 1) % partners.length);
+    }, ROTATE_EVERY_MS);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   return (
-    <section id="partners" className="py-20 bg-gray-50">
+    <section id="partners" className="backdrop backdrop-light py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -48,79 +63,110 @@ const Partners: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-charcoal-800 mb-6">
-            Our <span className="text-yellow-400">Partners</span>
+            Our Partners &amp; <span className="highlight">Network</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            We're grateful to our partners and sponsors who share our vision of creating 
-            positive social impact through entrepreneurial action.
+            As part of Enactus India and the global Enactus network, we work alongside the 
+            organisations that back student-led social enterprise.
           </p>
         </motion.div>
 
-        {/* Partners Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {partners.map((partner, index) => (
-            <motion.div
-              key={partner.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
-            >
-              <div className="bg-gray-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center">
-                {/* Partner Logo */}
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
-                  <Building className="h-12 w-12 text-yellow-500" />
-                </div>
-
-                {/* Partner Info */}
-                <h3 className="text-xl font-semibold text-charcoal-800 mb-3 group-hover:text-yellow-500 transition-colors duration-300">
-                  {partner.name}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {partner.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Partnership CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
+        {/* Revolving partner orbit with details for the highlighted partner */}
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="bg-gray-50 rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
-            <Handshake className="h-12 w-12 text-yellow-400 mx-auto mb-6" />
-            <h3 className="text-3xl font-bold text-charcoal-800 mb-4">
-              Partner With Us
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Join hands with us to create meaningful social impact. We offer various 
-              partnership opportunities that align with your corporate social responsibility goals.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              {['Strategic Partnership', 'Project Sponsorship', 'Community Support'].map((tier, index) => (
-                <div key={tier} className="bg-gray-50 rounded-lg p-4 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
-                  <h4 className="text-yellow-500 font-semibold mb-2">{tier}</h4>
-                  <p className="text-gray-500 text-sm">
-                    Comprehensive support with maximum visibility and impact recognition.
-                  </p>
-                </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className={`orbit relative w-full max-w-md mx-auto aspect-square ${isPaused ? 'orbit-paused' : ''}`}
+          >
+            {/* Orbit rings */}
+            <div className="absolute inset-[10%] rounded-full border-2 border-dashed border-yellow-500/50" />
+            <div className="absolute inset-[27%] rounded-full border border-gray-200" />
+
+            {/* Our chapter at the centre */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-square rounded-3xl overflow-hidden shadow-md">
+              <img src="/favicon.png" alt="Enactus BITS Pilani" className="w-full h-full object-cover" />
+            </div>
+
+            {/* Revolving logos (each one counter-rotates to stay upright) */}
+            <div className="orbit-spin absolute inset-0">
+              {partners.map((partner, index) => {
+                const angle = (index / partners.length) * 2 * Math.PI - Math.PI / 2;
+                const isActive = index === activeIndex;
+
+                return (
+                  <div
+                    key={partner.name}
+                    className="absolute w-[24%] aspect-square -translate-x-1/2 -translate-y-1/2"
+                    style={{
+                      left: `${50 + ORBIT_RADIUS * Math.cos(angle)}%`,
+                      top: `${50 + ORBIT_RADIUS * Math.sin(angle)}%`,
+                    }}
+                  >
+                    <button
+                      onClick={() => setActiveIndex(index)}
+                      aria-label={`Show ${partner.name}`}
+                      aria-pressed={isActive}
+                      className={`orbit-spin-reverse w-full h-full rounded-full bg-paper flex items-center justify-center p-[18%] border-2 shadow-sm ${
+                        isActive ? 'border-yellow-400 shadow-gold-glow' : 'border-gray-200 hover:border-yellow-400'
+                      }`}
+                    >
+                      <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain" />
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Highlighted partner */}
+          <div>
+            <div className="bg-paper border border-gray-200 rounded-2xl p-8 shadow-sm min-h-[19rem]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active.name}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="h-14 mb-6 flex items-center">
+                    <img src={active.logo} alt={active.name} className="h-full max-w-[12rem] object-contain object-left" />
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
+                    <h3 className="text-2xl font-bold text-charcoal-800">{active.name}</h3>
+                    <span className="px-3 py-1 rounded-full bg-yellow-400 text-charcoal-900 text-xs font-semibold">
+                      {active.tag}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">{active.description}</p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Partner picker */}
+            <div className="flex flex-wrap gap-3 mt-6">
+              {partners.map((partner, index) => (
+                <button
+                  key={partner.name}
+                  onClick={() => setActiveIndex(index)}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold border ${
+                    index === activeIndex
+                      ? 'bg-charcoal-800 text-white border-charcoal-800'
+                      : 'bg-paper text-charcoal-800 border-gray-200 hover:border-yellow-500'
+                  }`}
+                >
+                  {partner.name}
+                </button>
               ))}
             </div>
-            <motion.button
-              className="bg-yellow-400 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Become a Partner
-            </motion.button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

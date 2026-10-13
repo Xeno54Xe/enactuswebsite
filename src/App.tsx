@@ -1,17 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import TeamPage from './pages/TeamPage';
-import ProtectedRoute from './components/ProtectedRoute';
+
+// Scroll to the hash target (e.g. /#projects) or to the top on every navigation
+const ScrollManager = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location]);
+
+  return null;
+};
 
 function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <ScrollManager />
       <div className="min-h-screen bg-charcoal-800 font-poppins relative">
         <Navbar />
         <motion.main
@@ -22,16 +37,8 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/team" element={<TeamPage />} />
-            <Route 
-              path="/dashboard" 
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              } 
-            />
+            <Route path="/team" element={<Navigate to="/#team" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </motion.main>
         <Footer />

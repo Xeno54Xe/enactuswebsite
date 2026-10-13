@@ -1,253 +1,84 @@
-# Enactus BITS Pilani - Full-Stack Website
+# Enactus BITS Pilani Website
 
-A modern, responsive website for Enactus BITS Pilani built with React, Node.js, and MongoDB. Features a sophisticated dark theme with metallic gold accents, smooth animations, and comprehensive functionality.
+The public website for Enactus BITS Pilani: a single-page React site with sections for the hero, about, journey, projects, PoR holders, partners and contact.
 
-## 🚀 Features
+## Tech stack
 
-### Frontend
-- **Modern Design**: Dark charcoal theme with metallic gold accents
-- **Responsive Layout**: Optimized for all devices (mobile, tablet, desktop)
-- **Smooth Animations**: Framer Motion animations and micro-interactions
-- **Interactive Elements**: Blob-style buttons with hover effects and glow animations
-- **Component Structure**: Modular React components with clean architecture
-
-### Backend
-- **Express.js API**: RESTful API with JWT authentication
-- **MongoDB Integration**: Mongoose ODM for data management
-- **Email System**: Nodemailer integration for contact forms and notifications
-- **Security**: Rate limiting, CORS protection, and secure authentication
-
-### Key Sections
-- **Hero Section**: Animated landing with call-to-action buttons
-- **About Us**: Mission, values, and story with interactive elements
-- **Projects**: Showcase of social impact initiatives
-- **Team**: Member profiles with social links
-- **Sponsors**: Partnership opportunities and current sponsors
-- **Contact**: Interactive form with email notifications
-- **Dashboard**: Protected admin area with analytics
-
-## 🛠 Tech Stack
-
-### Frontend
-- React 18 with TypeScript
-- Framer Motion for animations
+- React 18 with TypeScript, built with Vite
 - Tailwind CSS for styling
+- Framer Motion for animation
 - React Router for navigation
-- Axios for API communication
-- Lucide React for icons
+- lucide-react for icons
 
-### Backend
-- Node.js with Express.js
-- MongoDB with Mongoose
-- JWT for authentication
-- Nodemailer for email services
-- bcryptjs for password hashing
-- express-rate-limit for API protection
+## Running locally
 
-## 🏗 Project Structure
+Requires Node.js 18 or newer.
 
-```
-/
-├── src/                          # Frontend source code
-│   ├── components/              # Reusable components
-│   │   ├── sections/           # Page sections
-│   │   ├── BlobButton.tsx      # Custom button component
-│   │   ├── Footer.tsx          # Site footer
-│   │   ├── Navbar.tsx          # Navigation component
-│   │   └── ProtectedRoute.tsx  # Route protection
-│   ├── pages/                  # Main pages
-│   │   ├── Dashboard.tsx       # Admin dashboard
-│   │   ├── Home.tsx           # Landing page
-│   │   └── Login.tsx          # Authentication page
-│   └── main.tsx               # App entry point
-├── backend/                    # Backend source code
-│   ├── models/                # Database models
-│   ├── routes/                # API routes
-│   ├── middleware/            # Custom middleware
-│   └── server.js             # Server entry point
-└── README.md                 # This file
-```
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js (v16 or higher)
-- MongoDB (local or Atlas)
-- Gmail account for email services
-
-### Frontend Setup
-
-1. **Install Dependencies**
 ```bash
-npm install
-```
-
-2. **Start Development Server**
-```bash
+npm ci
 npm run dev
 ```
 
-The frontend will be available at `http://localhost:5173`
+The site is served at `http://localhost:5173`.
 
-### Backend Setup
+Other scripts:
 
-1. **Navigate to Backend Directory**
 ```bash
-cd backend
+npm run build     # production build into dist/
+npm run preview   # serve the production build locally
+npm run lint      # ESLint
 ```
 
-2. **Install Dependencies**
-```bash
-npm install
+## Project structure
+
+```
+index.html                     page shell, fonts, meta tags
+public/                        favicon, background silhouettes, robots.txt, host redirects
+src/main.tsx                   entry point
+src/App.tsx                    router and page layout
+src/pages/Home.tsx             the home page, composed of the sections below
+src/components/Navbar.tsx      top navigation
+src/components/Footer.tsx      footer
+src/components/Avatar.tsx      member photo with initials fallback
+src/components/sections/       Hero, About, Timeline, Projects, Team, Partners, Contact
+src/data/team.ts               PoR holders (name, role, photo, LinkedIn, email)
+src/assets/partners/           partner logos
+tailwind.config.js             colour palette and theme tokens
 ```
 
-3. **Environment Configuration**
-```bash
-cp .env.example .env
-```
+## Editing content
 
-Edit `.env` with your configuration:
-```env
-MONGODB_URI=mongodb://localhost:27017/enactus
-JWT_SECRET=your-super-secret-jwt-key-here
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-CLIENT_URL=http://localhost:5173
-PORT=5000
-```
+- **PoR holders:** edit `src/data/team.ts`. Keep the President first. Put photos in `public/team/` and set `image` to `/team/<file>`.
+- **Projects:** edit the `projects` array in `src/components/sections/Projects.tsx`. Leave `image` empty to show the yellow placeholder.
+- **Journey milestones:** edit the `milestones` array in `src/components/sections/Timeline.tsx`.
+- **Partners:** edit the `partners` array in `src/components/sections/Partners.tsx`.
+- **Colours:** the palette lives in `tailwind.config.js`.
 
-4. **Start Backend Server**
-```bash
-npm run dev
-```
+## Contact form
 
-The API will be available at `http://localhost:5000`
+The form in the contact section posts to [FormSubmit](https://formsubmit.co), which forwards messages to `contact@enactusbitsp.org`. The first submission sends an activation email to that inbox; the link in it must be clicked once before messages are delivered.
 
-## 🔑 Demo Credentials
+## Deployment
 
-For testing the admin dashboard:
-- **Email**: admin@enactusbitspilani.com
-- **Password**: enactus2024
+`npm run build` produces a static site in `dist/` that can be hosted on any static host. The site expects to be served from the root of its domain.
 
-## 📧 Email Configuration
+Unknown paths need to fall back to `index.html`. This is already configured for Netlify (`public/_redirects`) and Vercel (`vercel.json`); other hosts need the equivalent setting.
 
-### Gmail Setup
-1. Enable 2-Factor Authentication on your Gmail account
-2. Generate an App Password:
-   - Go to Google Account Settings
-   - Security → 2-Step Verification → App passwords
-   - Generate password for "Mail"
-3. Use the generated password in `EMAIL_PASS`
+## Contact form
 
-### Email Features
-- Contact form submissions send notifications to admin
-- Automatic confirmation emails to users
-- Chatwoot integration for live chat
-- Email conversation transcripts
+The form in the contact section posts to [FormSubmit](https://formsubmit.co), which forwards messages to `contact@enactusbitsp.org`. The first submission sends an activation email to that inbox; the link in it must be clicked once before messages are delivered.
 
-## 🎨 Customization
+## Deployment
 
-### Colors
-The theme uses a sophisticated color palette defined in `tailwind.config.js`:
-- **Charcoal**: Primary background colors (#1A1A1A, #2A2A2A)
-- **Gold**: Accent colors (#F9C416, #D4AF37)
-- **Gradients**: Metallic effects and smooth transitions
+`npm run build` produces a static site in `dist/` that can be hosted on any static host. The site expects to be served from the root of its domain.
 
-### Fonts
-- **Primary**: Poppins (Google Fonts)
-- **Weights**: 300, 400, 500, 600, 700, 800
+Unknown paths need to fall back to `index.html`. This is already configured for Netlify (`public/_redirects`) and Vercel (`vercel.json`); other hosts need the equivalent setting.
 
-### Animations
-Framer Motion configurations for:
-- Page transitions
-- Scroll-triggered animations
-- Hover effects
-- Loading states
+## Not in use
 
-## 🔐 Security Features
+- `backend/` and `server/` contain two unfinished Express/MongoDB API drafts. The site does not call them.
+- `src/pages/Login.tsx`, `src/pages/Dashboard.tsx` and their helpers are a mock login that is no longer routed.
 
-- JWT token-based authentication
-- Password hashing with bcrypt
-- Rate limiting for API endpoints
-- CORS protection
-- Input validation and sanitization
-- SQL injection prevention with Mongoose
+## Contact
 
-## 📱 Chatwoot Integration
-
-The website includes Chatwoot live chat widget:
-
-1. Replace placeholder in `index.html`:
-```javascript
-websiteToken: 'YOUR_WEBSITE_TOKEN_HERE'
-```
-
-2. Configure in your Chatwoot dashboard:
-   - Website channel setup
-   - Email forwarding to enactusbitspilani@gmail.com
-   - Custom styling to match site theme
-
-## 🚀 Deployment
-
-### Frontend (Netlify/Vercel)
-```bash
-npm run build
-```
-
-### Backend (Heroku/Railway/DigitalOcean)
-```bash
-npm start
-```
-
-### Environment Variables
-Ensure all production environment variables are set:
-- `MONGODB_URI` (MongoDB Atlas connection string)
-- `JWT_SECRET` (Strong secret key)
-- `EMAIL_USER` & `EMAIL_PASS` (Gmail credentials)
-- `CLIENT_URL` (Frontend domain)
-
-## 🧪 API Endpoints
-
-### Authentication
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/verify` - Verify token
-- `POST /api/auth/register` - Register new user (admin)
-
-### Contact
-- `POST /api/contact` - Submit contact form
-- `GET /api/contact` - Get all contacts (admin)
-- `PATCH /api/contact/:id/status` - Update contact status
-
-### Dashboard
-- `GET /api/dashboard` - Get dashboard data (protected)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Support
-
-For support and questions:
-- Email: enactusbitspilani@gmail.com
-- Phone: +91 12345 67890
-
-## 🙏 Acknowledgments
-
-- Enactus Global for inspiration and mission
-- BITS Pilani for providing the platform
-- All team members and contributors
-- Open source community for tools and libraries
-
----
-
-**Built with ❤️ by Enactus BITS Pilani Team**
-
-*Empowering Through Entrepreneurial Action*
+- Email: contact@enactusbitsp.org
