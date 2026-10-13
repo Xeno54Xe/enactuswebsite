@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-charcoal-800">
+    <section id="home" className="backdrop backdrop-dark min-h-screen flex items-center justify-center relative overflow-hidden bg-charcoal-800 pt-28 pb-24">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-300/5 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.2, 0.4, 0.2],
@@ -47,10 +47,10 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6"
           >
             Empowering Through
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent block">
+            <span className="bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent block">
               Entrepreneurial Action
             </span>
           </motion.h1>
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
             We are a community of passionate changemakers at BITS Pilani, dedicated to 
             creating sustainable social impact through innovative entrepreneurial solutions.
@@ -73,8 +73,8 @@ const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <motion.button
-              onClick={() => scrollToSection('about')}
-              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-charcoal-800 px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300 inline-flex items-center"
+              onClick={() => scrollToSection('contact')}
+              className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-charcoal-800 px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300 inline-flex items-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
             </motion.button>
             
             <motion.button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection('timeline')}
               className="bg-transparent border-2 border-yellow-400 text-white px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 hover:text-charcoal-800 transition-all duration-300 inline-flex items-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
               { number: '500+', label: 'Lives Impacted' },
               { number: '25+', label: 'Projects Completed' },
               { number: '50+', label: 'Active Members' },
-            ].map((stat, index) => (
+            ].map((stat) => (
               <motion.div
                 key={stat.label}
                 className="text-center"

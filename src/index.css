@@ -20,49 +20,134 @@ html {
 /* Custom gradient text utilities */
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-yellow-400 to-blue-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent;
   }
   
   .bg-gradient-yellow-blue {
-    @apply bg-gradient-to-r from-yellow-400 to-blue-500;
+    @apply bg-gradient-to-r from-yellow-400 to-yellow-500;
   }
   
   .border-gradient {
-    border-image: linear-gradient(to right, #facc15, #3b82f6) 1;
+    border-image: linear-gradient(to right, #FFC222, #EFAE00) 1;
   }
 }
 
-/* Ensure content stays above falling leaves */
+/* Marker-style highlight for accent words on light backgrounds */
+.highlight {
+  color: inherit;
+  padding: 0 0.15em;
+  background-image: linear-gradient(transparent 58%, #FFC222 58%, #FFC222 92%, transparent 92%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Faint campus silhouette pinned to the viewport behind every section */
+.backdrop {
+  position: relative;
+  isolation: isolate;
+}
+
+.backdrop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: max(100vw, 760px) auto;
+  background-attachment: fixed;
+}
+
+.backdrop-dark::before {
+  background-image: url('/skyline-light.png');
+  opacity: 0.1;
+}
+
+.backdrop-light::before {
+  background-image: url('/skyline-dark.png');
+  opacity: 0.09;
+}
+
+/* Partner orbit: the ring of logos revolves while each logo counter-rotates to stay upright */
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbit-spin {
+  animation: orbit-spin 36s linear infinite;
+}
+
+.orbit-spin-reverse {
+  animation: orbit-spin 36s linear infinite reverse;
+}
+
+.orbit-paused .orbit-spin,
+.orbit-paused .orbit-spin-reverse {
+  animation-play-state: paused;
+}
+
+/* Gentle bobbing for the floating team photos */
+@keyframes float-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-bob {
+  animation: float-bob 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-spin,
+  .orbit-spin-reverse,
+  .float-bob {
+    animation: none;
+  }
+}
+
 body {
-  background: #1A1A1A;
+  background: #161512;
 }
 
 /* Custom button styles */
 .btn-gradient {
-  @apply bg-gradient-to-r from-yellow-400 to-blue-500 text-charcoal-800 font-semibold rounded-full transition-all duration-300 hover:scale-105;
+  @apply bg-gradient-to-r from-yellow-400 to-yellow-500 text-charcoal-800 font-semibold rounded-full transition-all duration-300 hover:scale-105;
 }
 
-/* Animation for smooth transitions */
+/* Animation for smooth transitions (transform is left to Framer Motion) */
 * {
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Keep anchored sections clear of the fixed navbar */
+section[id] {
+  scroll-margin-top: 4rem;
 }
 
 /* Focus styles for accessibility */
-button:focus,
+button:focus-visible,
+a:focus-visible,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid #facc15;
+  outline: 2px solid #FFC222;
   outline-offset: 2px;
 }
 
 /* Custom selection colors */
 ::selection {
-  background-color: #facc15;
-  color: #1A1A1A;
+  background-color: #FFC222;
+  color: #161512;
 }
 
 ::-moz-selection {
-  background-color: #facc15;
-  color: #1A1A1A;
+  background-color: #FFC222;
+  color: #161512;
 }

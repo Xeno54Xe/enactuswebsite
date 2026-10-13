@@ -1,114 +1,85 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Users } from 'lucide-react';
-import Cookies from 'js-cookie';
-import logo from './logo.png';
+import { Menu, X } from 'lucide-react';
+import logo from './enactus-logo-white.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    
-    const checkAuth = () => {
-      const token = Cookies.get('token');
-      setIsLoggedIn(!!token);
-    };
 
     window.addEventListener('scroll', handleScroll);
-    checkAuth();
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLogout = () => {
-    Cookies.remove('token');
-    setIsLoggedIn(false);
-    navigate('/');
-  };
+  // Close the mobile menu on navigation
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
 
+  // Sections live on the home page, so route there first when on another page
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate(`/#${sectionId}`);
     setIsOpen(false);
   };
 
   const navLinks = [
-    { name: 'Home', href: '#home', action: () => scrollToSection('home') },
-    { name: 'About', href: '#about', action: () => scrollToSection('about') },
-    { name: 'Projects', href: '#projects', action: () => scrollToSection('projects') },
-    { name: 'Team', href: '#team', action: () => scrollToSection('team') },
-    { name: 'Partners', href: '#partners', action: () => scrollToSection('partners') },
-    { name: 'Contact', href: '#contact', action: () => scrollToSection('contact') },
+    { name: 'Home', id: 'home' },
+    { name: 'About', id: 'about' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Team', id: 'team' },
+    { name: 'Partners', id: 'partners' },
+    { name: 'Contact', id: 'contact' },
   ];
 
   return (
     <motion.nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-charcoal-800/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled || isOpen ? 'bg-charcoal-800/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-<Link to="/" className="bg-[1A1A1A] flex items-center space-x-3 h-10">
-  <img src={logo} alt="Enactus BITS Pilani" className="h-full w-auto object-contain" />
-</Link>
-
+        <div className="flex justify-between items-center py-3">
+          {/* Logo: Enactus mark with "BITS Pilani" set under the wordmark */}
+          <Link to="/" aria-label="Enactus BITS Pilani home" className="inline-flex flex-col">
+            <img src={logo} alt="Enactus" className="h-10 md:h-12 w-auto object-contain" />
+            <span className="pl-[19%] mt-1 text-white/90 font-medium leading-none text-[11px] md:text-sm">
+              BITS Pilani
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <button
                 key={link.name}
-                onClick={link.action}
+                onClick={() => scrollToSection(link.id)}
                 className="text-white hover:text-yellow-400 transition-colors duration-300 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
               </button>
             ))}
-            
-            {isLoggedIn ? (
-              <div className="flex items-center space-x-4">
-                <Link
-                  to="/dashboard"
-                  className="text-yellow-400 hover:text-orange-400 transition-colors duration-300"
-                >
-                  Dashboard
-                </Link>
-                <button
-                  onClick={handleLogout}
-                  className="bg-charcoal-700 text-white px-4 py-2 rounded-full hover:bg-charcoal-600 transition-colors duration-300"
-                >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <Link
-                to="/login"
-                className="bg-yellow-400 text-charcoal-800 px-6 py-2 rounded-full font-semibold hover:scale-105 transition-all duration-300"
-              >
-                Login
-              </Link>
-            )}
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
               className="text-white hover:text-yellow-400 transition-colors duration-300"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -121,46 +92,17 @@ const Navbar: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-charcoal-700/95 backdrop-blur-md rounded-lg mt-2 p-4"
+            className="md:hidden bg-charcoal-700/95 backdrop-blur-md rounded-lg mt-2 mb-3 p-4"
           >
             {navLinks.map((link) => (
               <button
                 key={link.name}
-                onClick={link.action}
+                onClick={() => scrollToSection(link.id)}
                 className="block w-full text-left text-white hover:text-yellow-400 py-2 transition-colors duration-300"
               >
                 {link.name}
               </button>
             ))}
-            {isLoggedIn ? (
-              <div className="space-y-2 pt-2 border-t border-charcoal-600">
-                <Link
-                  to="/dashboard"
-                  className="block text-yellow-400 hover:text-orange-400 py-2 transition-colors duration-300"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Dashboard
-                </Link>
-                <button
-                  onClick={() => {
-                    handleLogout();
-                    setIsOpen(false);
-                  }}
-                  className="block w-full text-left text-white py-2"
-                >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <Link
-                to="/login"
-                className="block bg-yellow-400 text-charcoal-800 px-4 py-2 rounded-full font-semibold text-center mt-4"
-                onClick={() => setIsOpen(false)}
-              >
-                Login
-              </Link>
-            )}
           </motion.div>
         )}
       </div>
